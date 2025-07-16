@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Moreto - Chapa y Pintura</title>
+  <link rel="icon" href="isotipogris.png" sizes="32x32" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,22 +154,22 @@
   <!-- Compañías de Seguros -->
   <section id="seguros" class="seguros">
     <h2>COMPAÑÍAS DE SEGUROS</h2>
-    <p>En nuestro taller de chapa y pintura, nos esforzamos por brindar un servicio integral y transparente a nuestros clientes. Trabajamos en estrecha colaboración con todas las compañías de seguros del mercado, asi como tambien particulares.</p>
+    <p>En nuestro taller de chapa y pintura, nos esforzamos por brindar un servicio integral y transparente a nuestros clientes. Trabajamos en estrecha colaboración con todas las compañías de seguros del mercado, asi como tambien a particulares.</p>
     <div class="container">
       <div class="seguros-grid">
-            <a href="#" class="seguro-item"><img src="nacionseguros.png" alt="Nacion"></a>
-            <a href="#" class="seguro-item"><img src="mercantil.svg" alt="Mercantil"></a>
-            <a href="#" class="seguro-item"><img src="mapfre.png" alt="Mapfre"></a>
-            <a href="#" class="seguro-item"><img src="meridonial.png" alt="Meridonial"></a>
-            <a href="#" class="seguro-item"><img src="segurosrivadavia.png" alt="Rivadavia"></a>  
-            <a href="#" class="seguro-item"><img src="segurcoop.webp" alt="Segurcoop"></a>
-            <a href="#" class="seguro-item"><img src="federacion.png" alt="Federacion Patronal"></a>
-            <a href="#" class="seguro-item"><img src="zurichseguros.png" alt="Zurich"></a>
-            <a href="#" class="seguro-item"><img src="allianz.png" alt="Allianz"></a>
-            <a href="#" class="seguro-item"><img src="sancristobalseguros.png" alt="San Cristobal"></a>
-            <a href="#" class="seguro-item"><img src="lasegunda.png" alt="La Segunda"></a>
-            <a href="#" class="seguro-item"><img src="sancorseguros.png" alt="Sancor"></a>
-            <a href="#" class="seguro-item"><img src="lacaja.png" alt="La Caja"></a>
+            <a href="https://www.nacion-seguros.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="nacionseguros.png" alt="Nacion"></a>
+            <a href="https://mercantilandina.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="mercantil.svg" alt="Mercantil"></a>
+            <a href="https://www.mapfre.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="mapfre.png" alt="Mapfre"></a>
+            <a href="https://www.meridionalseguros.seg.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="meridonial.png" alt="Meridonial"></a>
+            <a href="https://www.segurosrivadavia.com/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="segurosrivadavia.png" alt="Rivadavia"></a>  
+            <a href="https://www.segurcoop.coop/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="segurcoop.webp" alt="Segurcoop"></a>
+            <a href="https://www.fedpat.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="federacion.png" alt="Federacion Patronal"></a>
+            <a href="https://www.zurich.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="zurichseguros.png" alt="Zurich"></a>
+            <a href="https://www.allianz.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="allianz.png" alt="Allianz"></a>
+            <a href="https://www.sancristobal.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="sancristobalseguros.png" alt="San Cristobal"></a>
+            <a href="https://www.lasegunda.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="lasegunda.png" alt="La Segunda"></a>
+            <a href="https://www.sancorseguros.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="sancorseguros.png" alt="Sancor"></a>
+            <a href="https://seguros.lacaja.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="lacaja.png" alt="La Caja"></a>
       </div>
     </div>
   </section>
@@ -347,15 +348,25 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
 <!-- Script para btn hamburguesa -->
  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.nav-toggle');
-    const nav     = document.querySelector('.site-nav');
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.querySelector('.site-nav');
 
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      toggle.classList.toggle('open');
+  // Toggle del menú
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    toggle.classList.toggle('open');
+  });
+
+  // Cerrar menú al clicar cualquier enlace
+  document.querySelectorAll('.site-nav .nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
     });
   });
+});
+
 </script>
 
 <!-- Script para FAQs -->
