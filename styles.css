@@ -1,0 +1,895 @@
+:root {
+  /* Ajusta estos valores según la paleta de marca Moreto */
+  --primary-color: #E8E3DF;
+  --secondary-color: #861A1B;
+  --text-color: #0F0F0F;
+  --bg-color: #FFFFFF;
+  --header-height: 80px;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  background: var(--primary-color);
+  line-height: 1.6;
+}
+
+h2 {
+  font-family: "Aldrich", sans-serif;
+}
+
+h1, h2, h3 {
+    text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.4),   /* sombra principal */
+    0 0 2px rgba(255, 255, 255, 0.2);  /* brillo suave */
+}
+
+/* Contenedor principal */
+.container {
+  width: 1400px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  height: var(--header-height);
+  background: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--text-color)
+  );
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.445);
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+}
+
+.logo img {
+  height: 120px;
+  margin-top: 0.4rem;
+  padding: 0;
+}
+
+/* Navegación */
+.site-nav .nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  font-family: "Aldrich", sans-serif;
+}
+
+.site-nav .nav-list li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.site-nav .nav-list li a:hover {
+  color: #ba8e62;
+}
+
+/* Botón hamburguesa (oculto en desktop) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #FFFFFF;
+}
+
+/* Las tres líneas del icono */
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--text-color);
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.nav-toggle .hamburger::before {
+  transform: translateY(-8px);
+}
+.nav-toggle .hamburger::after {
+  transform: translateY(5px);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 1000px;       /* altura fija según tu mockup */
+  overflow: hidden;
+}
+
+/* Contenedor de slides: 3 slides de 100% cada uno */
+.carousel {
+  display: flex;
+  margin-top: 4rem;
+  width: 100%;         /* 3 slides x 100% */
+  height: 100%;        /* ocupa esos 400px del .hero */
+  transition: transform 0.5s ease-in-out;
+  cursor: grab;
+}
+.carousel:active {
+  cursor: grabbing;
+}
+
+/* Cada slide ocupa un 100% del ancho del hero */
+.carousel-slide {
+  flex: 0 0 100%;      /* mismo que width:100% + no shrinking */
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;  /* ancho 100%, altura proporcional */
+  display: flex;
+  align-items: center;
+  
+}
+
+/* Fondos de cada slide */
+.slide-1 { background-image: url('carruselgolf.jpg'); }
+.slide-2 { background-image: url('carruseltratamientos.jpg'); }
+.slide-3 { background-image: url('carrusellimpiezatapizado.jpg'); }
+.slide-4 { background-image: url('mecanicaligera.webp'); }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: none;
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel-btn.prev { left: 1rem; }
+.carousel-btn.next { right: 1rem; }
+
+.carousel-content {
+  padding: 1.5rem;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--primary-color);
+  margin-left: 2rem;
+  border-radius: 4px;
+  position: absolute;    /* asegúrate que esté absoluto */
+  top: auto;             /* cancela la regla anterior */
+  transform: none;       /* quita cualquier translate */
+  
+}
+
+.carousel-content .btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;             /* mayor “tap area” */
+  font-size: 1.125rem;               /* texto más grande */
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;              /* píldora redondeada */
+  transition: 
+    background 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  /* Sombra sutil por defecto */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.btn-primary {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-top: 1rem;
+}
+.carousel-content .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.carousel-content .btn-primary:hover {
+  background: #BA8E62;
+  color: var(--primary-color);
+}
+
+.carousel-content h2 {
+  font-size: 3rem;
+  color: var(--primary-color);
+  font-family: "Aldrich", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Servicios */
+.servicios {
+  padding: 4rem 0;
+  margin-top: 4rem;
+}
+
+.servicios h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Aldrich", sans-serif;
+}
+/* H2 con fondo degradado full-width */
+.servicios h2,
+.seguros h2 {
+  display: block;                      /* Para que el fondo abarque todo el ancho */
+  width: 100%;
+  padding: 1rem 0;                     /* Espacio arriba y abajo para dar “altura extra” */
+  margin: 0 auto 2rem;                /* Mantiene tu separación baja */
+  background: linear-gradient(
+    to right,
+    #ba8e62,
+    var(--primary-color)
+  );
+  text-align: center;
+  box-sizing: border-box;
+}
+.servicio-item h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-align: left;
+  width: 100%;
+  font-family: "Aldrich", sans-serif;
+  box-sizing: border-box;
+}
+/* Ajustes al grid para que se adapte mejor */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+/* 1) Solo animación de entrada (una vez) */
+.servicio-item {
+  position: relative;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Imagen un poco más grande dentro de la tarjeta */
+.servicio-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+/* Clase que dispara la animación */
+.servicio-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out both;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.servicio-item:nth-child(1).in-view { animation-delay: 0.1s; }
+.servicio-item:nth-child(2).in-view { animation-delay: 0.2s; }
+.servicio-item:nth-child(3).in-view { animation-delay: 0.3s; }
+.servicio-item:nth-child(4).in-view { animation-delay: 0.1s; }
+.servicio-item:nth-child(5).in-view { animation-delay: 0.2s; }
+.servicio-item:nth-child(6).in-view { animation-delay: 0.3s; }
+
+/* 2) Delay escalonado */
+.servicio-item:nth-child(1) { animation-delay: 0.1s; }
+.servicio-item:nth-child(2) { animation-delay: 0.2s; }
+.servicio-item:nth-child(3) { animation-delay: 0.3s; }
+.servicio-item:nth-child(4) { animation-delay: 0.1s; }
+.servicio-item:nth-child(5) { animation-delay: 0.2s; }
+.servicio-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* 3) Hover: tilt 3D + scale + sombra */
+.servicio-item:hover {
+  transform: perspective(800px) rotateY(6deg) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* 4) Overlay sutil */
+.servicio-item::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  z-index: 0;                           /* detrás del contenido */
+  transition: background 0.3s ease;
+}
+.servicio-item:hover::before {
+  background: rgba(255,255,255,0.15);
+}
+
+.servicio-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.servicio-item:hover::after {
+  left: 100%;
+}
+
+/* 5) Keyframes de fadeInUp */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3) Pulsing glow */
+@keyframes glow {
+  0%,100% {
+    box-shadow: 0 0 8px rgba(255,255,255,0);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(255,255,255,0.4);
+  }
+}
+
+/* Compañías de Seguros */
+.seguros {
+  padding: 0;
+  background: var(--primary-color);
+}
+.seguros h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  
+}
+.seguros p {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  max-width: 100%;
+}
+.seguros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 0;
+  padding: 0;
+}
+
+.seguro-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+.seguro-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: filter 0.3s ease;
+}
+
+.seguro-item img:hover {
+  filter: none;      /* recupera color al pasar el mouse */
+}
+
+/* ¿Quiénes Somos? */
+.quienes-somos {
+  display: block;
+  width: 100%;       /* ocupa todo el ancho de la pantalla */
+  height: auto;      /* mantiene proporción original */
+  object-fit: cover; /* recorta si es más alta que el contenedor */
+}
+.quienes-combinado {
+  position: relative;
+  height: 600px;                          /* ajusta a tu mockup */
+  background: url('quienessomosnew.jpg') no-repeat left center/cover;
+}
+
+/* Título sobre la imagen */
+.quienes-combinado h2 {
+  position: absolute;
+  bottom: 1rem;       /* separación desde abajo */
+  left: 1rem;         /* separación desde la izquierda */
+  margin: 0;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 2rem; 
+  font-family: "Aldrich", sans-serif;
+}
+
+/* TEXTO */
+
+.quienes-content {
+  display: flex;
+  gap: 4rem;            /* espacio entre columnas */
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+
+/* Columna Izquierda (texto principal) */
+.quienes-text {
+  flex: 0 0 50%;        /* ocupa el 65% del ancho */
+}
+
+/* Columna Derecha (listados) */
+.quienes-text-2 {
+  flex: 0 0 50%;        /* ocupa el 35% restante */
+  
+}
+
+/* Ajustes menores */
+.quienes-text p,
+.quienes-text-2 p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+
+/* FAQ */
+.faq {
+  padding: 4rem 0;
+  background:
+    linear-gradient(rgba(232, 227, 223,0.6), rgba(232, 227, 223,0.6)),
+    url('fondofaqs.png') center/cover no-repeat;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+/* Contenedor de FAQ */
+.faq-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Pregunta (botón) */
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+}
+/* 2) La flecha con ::after */
+.faq-question::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--secondary-color);
+  transition: transform 0.3s;
+}
+
+/* 3) Cuando el item tiene .open, gira la flecha */
+.faq-item.open .faq-question::after {
+  transform: rotate(180deg);
+}
+
+.faq-question:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+/* Flecha: triángulo apuntando abajo */
+.faq-arrow {
+  display: inline-block;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--primary-color);
+  transition: transform 0.3s;
+  margin-left: 1rem;
+}
+
+/* Cuando el ítem está abierto, gira la flecha */
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg); /* flecha hacia arriba */
+}
+
+/* Respuesta oculta inicialmente */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 1.5rem;
+  text-align: left;
+}
+.faq-item.open .faq-answer {
+  max-height: 1000px;
+  padding: 1rem 1.5rem;
+}
+
+
+
+
+/* Footer */
+/* Footer general */
+.site-footer {
+    background: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--text-color)
+  );
+  color: var(--primary-color);
+  padding: 2rem 0;
+}
+
+/* Contenedor flexible */
+.footer-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  /* altura amplia para tu rectángulo grande */
+  height: 620px;
+}
+
+/* Lado izquierdo */
+.footer-left {
+  flex: 0 0 40%;     /* ocupa 40% del ancho */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-logo img {
+  max-width: 350px;
+  height: auto;
+}
+
+.footer-contact p {
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+
+.footer-social {
+  padding: 1rem 0;
+}
+
+.footer-social p {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+.footer-social a img {
+  width: 52px;
+  height: auto;
+  margin-right: 0.75rem;   /* espacio entre iconos */
+}
+
+.footer-right {
+  flex: 1;           /* ocupa el resto (60%) */
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Icono flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;           /* distancia desde abajo */
+  right: 1.5rem;            /* distancia desde la derecha */
+  width: 60px;
+  height: 60px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float img {
+  width: 60%;
+  height: auto;
+}
+
+/* Hover: ligero “pop” */
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+
+
+/* -------------------------------
+   1) Notebook / Pantallas medianas
+   @ hasta 1300px de ancho
+   ------------------------------- */
+@media (max-width: 1500px) {
+  /* Contenedor más dinámico */
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+  .hero {
+    height: 600px;
+  }
+  .carousel {
+    margin-top: 4rem;
+    height: 80%;
+  }
+
+    .carousel-content {
+    max-width: 400px;       /* menos ancho en pantallas más angostas */
+    padding: 1.5rem;        /* reduce el padding */
+  }
+  .carousel-content h2 {
+    font-size: 2rem;        /* ajusta el tamaño del título */
+  }
+  .carousel-content p {
+    font-size: 1.1rem;
+  }
+
+  /* Servicios: de 3 a 2 columnas */
+  .servicios {
+    margin: 0;
+  }
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Seguros (grid): logos un poquito más chicos */
+  .seguros-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Quienes somos: texto al 80% */
+  .quienes-content {
+    max-width: 90%;
+  }
+  .quienes-somos .quienes-text {
+    width: 100%;
+  }
+
+  .seguros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 0;
+  padding: 1rem;
+}
+
+.seguro-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+.seguros p {
+  max-width: 100%;
+  text-align: center;
+  padding: 0 3rem;
+}
+
+}
+
+
+
+@media (max-width: 800px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  background: var(--primary-color);
+}
+
+  .site-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  /* cuando .site-nav tiene la clase .open, se despliega */
+  .site-nav.open {
+    max-height: 400px; /* suficiente para mostrar todos los items */
+  }
+
+  .site-nav .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .site-nav .nav-list li a {
+    padding: 0.5rem 1rem;
+    display: block;
+    color: var(--secondary-color);
+  }
+
+  /* Ajuste logo para que no se salga */
+  .logo img {
+    max-height: calc(var(--header-height) - 1rem);
+    width: auto;
+  }
+
+  /* Hero: altura automática y texto más compacto */
+  .hero {
+    height: 50vh;       /* 50% de la altura de la ventana */
+    min-height: 300px;  /* nunca baje de 300px */
+    max-height: 400px;  /* opcional: tampoco pase de 400px */
+  }
+  /* 2) Hacer que el contenedor y las slides llenen ese 100% */
+  .carousel,
+  .carousel-slide {
+    height: 100%;
+  }
+  
+  /* 3) Asegurar que el fondo cubra sin verse “chico” */
+  .carousel-slide {
+    background-size: cover;     /* recorta centrado, no se achica */
+    background-position: center;
+  }
+    /* 4) Ajustar el área de texto si lo tapara demasiado */
+  .carousel-content {
+    padding: 0.5rem;
+    top: auto;
+    transform: none;
+    max-width: 100%;      /* opcional: para que no ocupe todo el ancho */
+  }
+  .carousel-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .carousel-content p {
+    font-size: 0.8rem;
+  }
+  .carousel-content .btn {
+    display: block;
+    width: 80%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+/*Servicios*/
+  .servicios-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+    .quienes-somos .container {
+    width: 100%;
+    padding: auto 1rem;
+    display: block !important;
+  }
+  .quienes-somos .quienes-text,
+  .quienes-somos .quienes-text-2 {
+    padding: 0 1rem;
+  }
+  .quienes-content h3 {
+    padding: 1rem 0;
+  }
+
+  /*QUIENES SOMOS*/
+
+  .quienes-content {
+
+  }
+
+  /*SEGUROS*/
+  #seguros p {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+  }
+  .seguros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .seguro-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  .seguro-item img {
+    width: 140px;     
+    height: auto;
+    object-fit: contain;
+  }
+
+  /*Footer*/
+    .footer-content {
+    flex-direction: column;
+    height: auto;
+  }
+  .footer-left, .footer-right {
+    flex: 1 1 100%;
+  }
+  .footer-left {
+    text-align: center;
+  }
+  .footer-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+  }
+}
