@@ -5,7 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taller Moreto - Chapa y Pintura</title>
+  <meta name="description" content="En Taller Moreto ofrecemos servicios automotriz de alta calidad">
   <link rel="icon" href="isotipogris.png" sizes="32x32" type="image/png">
+  <link rel="preload" as="image" href="carruselgolf.webp" type="image/webp">
+  <link rel="preload" as="image" href="carruseltratamientos.webp" type="image/webp">
+  <link rel="preload" as="image" href="carrusellimpiezatapizado.webp" type="image/webp">
+  <link rel="preload" as="image" href="mecanicaligera.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,7 +99,7 @@
           <h3>Reclamo a terceros</h3>
         </div>
         <div class="servicio-item">
-          <img src="servicioslimpiezatapizado.webp" alt="Gestión de Siniestros">
+          <img src="carrusellimpiezatapizado.webp" alt="Gestión de Siniestros">
           <h3>Limpieza de tapizados</h3>
         </div>
         <div class="servicio-item">
@@ -154,7 +159,7 @@
   <!-- Compañías de Seguros -->
   <section id="seguros" class="seguros">
     <h2>COMPAÑÍAS DE SEGUROS</h2>
-    <p>En nuestro taller de chapa y pintura, nos esforzamos por brindar un servicio integral y transparente a nuestros clientes. Trabajamos en estrecha colaboración con todas las compañías de seguros del mercado, asi como tambien a particulares.</p>
+    <p>En nuestro taller de chapa y pintura, nos esforzamos por brindar un servicio integral y transparente a nuestros clientes. Trabajamos en estrecha colaboración con todas las compañías de seguros del mercado, así como también a particulares.</p>
     <div class="container">
       <div class="seguros-grid">
             <a href="https://www.nacion-seguros.com.ar/" class="seguro-item" target="_blank" rel="noopener noreferrer"><img src="nacionseguros.png" alt="Nacion"></a>
@@ -212,10 +217,14 @@
         <img src="logogold.png" alt="Taller Moreto">
       </a>
       <div class="footer-contact">
-        <p><strong>Dirección:</strong> Av. Central 1234, Rosario, Santa Fe</p>
-        <p><strong>Teléfono:</strong> +54 341 0000000</p>
+        <p><strong>Dirección:</strong> Moreto 337, Floresta, CABA</p>
         <p><strong>Email:</strong> contacto@tallermoreto.com</p>
       </div>
+        <!-- Acciones de contacto: Llamada y WhatsApp -->
+  <div class="footer-actions">
+    <a href="tel:+5491173727936" class="btn btn-footer">Llamada</a>
+    <a href="https://wa.me/+5491173727936" target="_blank" rel="noopener" class="btn btn-footer2">WhatsApp</a>
+  </div>
       <div class="footer-social">
           <p>¡Seguinos en nuestras redes!</p>
           <a href="https://instagram.com/tallermoreto" target="_blank" rel="noopener">
@@ -237,10 +246,14 @@
       </iframe>
     </div>
   </div>
+    <!-- Línea de copy -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 Taller Moreto. Diseñado por ConectAds.</p>
+  </div>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/3410000000" target="_blank" rel="noopener" class="whatsapp-float">
+<a href="https://wa.me/+5491173727936" target="_blank" rel="noopener" class="whatsapp-float">
   <img src="logowp.png" alt="WhatsApp Taller Moreto">
 </a>
 
@@ -317,13 +330,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
 </script>
 
 
-  <!-- Script para carrusel seguros-->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.seguros-track');
-    track.innerHTML += track.innerHTML;  // clona todo el contenido
-  });
-</script>
 <!-- Script para animacion en servicios-->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -384,10 +390,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
-
-
-
-
+  <!-- Script para carrusel seguros-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.seguros-track');
+    track.innerHTML += track.innerHTML; 
+  });
+</script>
 
 </body>
 </html>
