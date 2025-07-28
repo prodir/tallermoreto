@@ -692,6 +692,11 @@ h1, h2, h3 {
   transform: translateY(-2px);
 }
 
+.conectads {
+  text-decoration: none;
+  font-family: ;
+}
+
 
 /* Icono flotante de WhatsApp */
 .whatsapp-float {

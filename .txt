@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?tallermoreto\.com\.ar$ [NC]
+RewriteCond %{REQUEST_URI} !^/tallermoreto/
+RewriteRule ^(.*)$ /tallermoreto/$1 [L]
+<FilesMatch \.p(hp|hp5|hp7|html)$>
+    SetHandler proxy:unix:/opt/php8-3/var/run/php-fpm/c2731487.sock|fcgi://c2731487
+</FilesMatch>
