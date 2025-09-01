@@ -470,12 +470,13 @@ h1, h2, h3 {
 /* Columna Izquierda (texto principal) */
 .quienes-text {
   flex: 0 0 50%;        /* ocupa el 65% del ancho */
+  text-align: justify;
 }
 
 /* Columna Derecha (listados) */
 .quienes-text-2 {
   flex: 0 0 50%;        /* ocupa el 35% restante */
-  
+  text-align: justify;
 }
 
 /* Ajustes menores */
@@ -563,6 +564,7 @@ h1, h2, h3 {
   transition: max-height 0.4s ease, padding 0.4s ease;
   padding: 0 1.5rem;
   text-align: left;
+  text-align: justify;
 }
 .faq-item.open .faq-answer {
   max-height: 1000px;
